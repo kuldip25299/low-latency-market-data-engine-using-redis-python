@@ -53,7 +53,8 @@ REDIS_PASSWORD: str | None = None
 # ==============================================================================
 
 # Channel used for broadcasting live market updates.
-MARKET_DATA_CHANNEL: str = "market:data"
+MARKET_DATA_CHANNEL = "market-data"
+
 
 # Prefix used for storing latest market snapshots.
 MARKET_CACHE_PREFIX: str = "market"

@@ -44,7 +44,9 @@ from abc import abstractmethod
 
 from models.market_tick import MarketTick
 
-from redis.redis_client import RedisManager
+from infrastructure.redis_client import RedisManager
+from infrastructure.latest_price_cache import LatestPriceCache
+
 
 from config import settings
 
@@ -65,6 +67,8 @@ class BaseMarketSubscriber(ABC):
         self.client = RedisManager.get_client()
 
         self.pubsub = self.client.pubsub()
+
+        self.cache = LatestPriceCache()
 
     # ------------------------------------------------------------------
 
